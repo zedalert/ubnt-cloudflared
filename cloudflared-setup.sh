@@ -34,7 +34,7 @@ set system name-server 127.0.0.1
 delete firewall name WAN_OUT rule 1000
 
 set firewall name WAN_OUT rule 1000 action drop
-set firewall name WAN_OUT rule 1000 description "Block all outgoing DNS requests on WAN_OUT"
+set firewall name WAN_OUT rule 1000 description "Block insecure DNS requests"
 set firewall name WAN_OUT rule 1000 protocol tcp_udp
 set firewall name WAN_OUT rule 1000 destination port 53
 set firewall name WAN_OUT rule 1000 log enable
