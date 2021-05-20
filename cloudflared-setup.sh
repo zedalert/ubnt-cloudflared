@@ -12,7 +12,7 @@ if [ ! -f /opt/cloudflared/cloudflared ] || [ "$1" = "pull" ]; then
 fi
 /bin/chmod +x /opt/cloudflared/cloudflared
 /opt/cloudflared/cloudflared service install --legacy
-/etc/init.d/cloudflared restart
+systemctl restart cloudflared
 
 # System config 
 configure
