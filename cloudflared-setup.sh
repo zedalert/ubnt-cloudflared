@@ -4,6 +4,9 @@ source /opt/vyatta/etc/functions/script-template
 # Pull files
 mkdir -p /etc/cloudflared
 mkdir -p /opt/cloudflared
+if [ ! -f /etc/cloudflared/cert.pem ] || [ "$1" = "pull" ]; then
+	/usr/bin/curl -sf https://developers.cloudflare.com/ssl/e2b9968022bf23b071d95229b5678452/origin_ca_rsa_root.pem --output /etc/cloudflared/cert.pem
+fi
 if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then
 	/usr/bin/curl -sf https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml
 fi
