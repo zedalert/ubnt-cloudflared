@@ -15,10 +15,10 @@ if [ ! -f /opt/cloudflared/cloudflared ] || [ "$1" = "pull" ]; then
 fi
 /bin/chmod +x /opt/cloudflared/cloudflared
 /opt/cloudflared/cloudflared service install --legacy
-systemctl disable cloudflared-update
-systemctl stop cloudflared-update.timer
-systemctl stop cloudflared-update
-systemctl restart cloudflared
+/bin/systemctl disable cloudflared-update
+/bin/systemctl stop cloudflared-update.timer
+/bin/systemctl stop cloudflared-update
+/bin/systemctl restart cloudflared
 
 # System config 
 configure
