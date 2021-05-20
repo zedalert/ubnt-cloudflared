@@ -9,12 +9,22 @@ Increase privacy on your network and prevent your ISP to eavesdrop your DNS requ
 ### Tested
 * UniFi Security Gateway 3P
 
+### Currently testing
+* EdgeRouter X/X-SFP
+
 ### Should work on (but not tested)
 * All EdgeRouter models
 * All UniFi Security Gateway models
 
 ## Guide
-### Installing
+### Installing hard way (secure)
+Download official [cloudflared](https://github.com/cloudflare/cloudflared/) client from GitHub.
+
+Build it with Go and target platform MIPSLE, since EdgeRouter processors has Little-Endian byte-order.
+
+Place resulting binary into `/opt/cloudflared/` directory and install it as service with `--legacy` switch to bypass use of Argo Tunnel.
+
+### Installing easy way (not secure)
 In a ssh session run the following command :
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/install.sh)
@@ -44,3 +54,6 @@ See the example in `nat-dns-redirect.sh`. You will have to adapt to your configu
 * https://github.com/yon2004/ubnt_cloudflared
 * https://community.ubnt.com/t5/UniFi-Routing-Switching/Scripts-on-USG/td-p/1402210
 * https://community.ubnt.com/t5/UniFi-Routing-Switching/Deploying-USG-scripts-through-controller/td-p/2140097
+* https://github.com/cloudflare/cloudflared/issues/251
+* https://community.ui.com/questions/Options-for-running-DNS-over-HTTPS-on-EdgeMax-device/065119c7-1f5c-4c29-8bc2-e8a0217bc018#answer/1b2861f6-e106-461e-af79-da9303a38e61
+* https://zyfdegh.github.io/post/202002-go-compile-for-mips/
