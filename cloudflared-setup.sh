@@ -30,6 +30,15 @@ set service dns forwarding options "server=127.0.0.1#5053"
 delete system name-server
 set system name-server 127.0.0.1
 
+# Redirect outgoing DNS packets to router (modify to match your's router IP address)
+set service nat rule 53 description "Redirect insecure DNS requests"
+set service nat rule 53 destination address !192.168.1.1
+set service nat rule 53 destination port 53
+set service nat rule 53 inbound-interface switch0
+set service nat rule 53 inside-address address 192.168.1.1
+set service nat rule 53 protocol tcp_udp
+set service nat rule 53 type destination
+
 # Block outgoing DNS packets and log them
 delete firewall name WAN_OUT rule 1000
 
