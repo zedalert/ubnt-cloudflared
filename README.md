@@ -38,9 +38,6 @@ In a ssh session run the following command :
 bash <(curl -s https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/uninstall.sh)
 ```
 
-### Redirecting NAT DNS requests
-See the example in `nat-dns-redirect.sh`. You will have to adapt to your configuration and networks and place this script in `/config/scripts/post-config.d/` on the gateway so it will be run on every provision.
-
 ## Contributing
 * Please fork and submit PR's if you have any improvements.
 	* Implementing IPv6 features would help greatly
