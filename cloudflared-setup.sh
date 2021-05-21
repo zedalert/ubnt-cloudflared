@@ -1,14 +1,13 @@
 #!/bin/vbash
 source /opt/vyatta/etc/functions/script-template
 
-# Pull files
-mkdir -p /etc/cloudflared
-mkdir -p /opt/cloudflared
-
 # Detect OS bit depth and processor byte order
 [ $(getconf LONG_BIT) = 64 ] && bitdepth='64' || bitdepth=''
 [[ $(lscpu | grep -oP 'Byte Order:\s*\K.+') == 'Little Endian' ]] && endian='le' || endian=''
 
+# Pull files
+mkdir -p /etc/cloudflared
+mkdir -p /opt/cloudflared
 if [ ! -f /etc/cloudflared/cert.pem ] || [ "$1" = "pull" ]; then
 	/usr/bin/curl -sf https://developers.cloudflare.com/ssl/e2b9968022bf23b071d95229b5678452/origin_ca_rsa_root.pem --output /etc/cloudflared/cert.pem
 fi
