@@ -1,5 +1,5 @@
 # ubnt-cloudflared
-Install Cloudflare's DNS proxy on UniFi® gateways. This setup will survive reboots and re-provisions.
+Install Cloudflare's DNS proxy on UniFi gateways and EdgeMax routers. This setup will survive reboots and re-provisions.
 
 Only working for IPv4 at the moment.
 
