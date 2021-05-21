@@ -4,6 +4,11 @@ source /opt/vyatta/etc/functions/script-template
 # Pull files
 mkdir -p /etc/cloudflared
 mkdir -p /opt/cloudflared
+
+# Detect OS bit depth and processor byte order
+[ $(getconf LONG_BIT) = 64 ] && bitdepth='64' || bitdepth=''
+[[ $(lscpu | grep -oP 'Byte Order:\s*\K.+') == 'Little Endian' ]] && endian='le' || endian=''
+
 if [ ! -f /etc/cloudflared/cert.pem ] || [ "$1" = "pull" ]; then
 	/usr/bin/curl -sf https://developers.cloudflare.com/ssl/e2b9968022bf23b071d95229b5678452/origin_ca_rsa_root.pem --output /etc/cloudflared/cert.pem
 fi
@@ -11,8 +16,10 @@ if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then
 	/usr/bin/curl -sf https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml
 fi
 if [ ! -f /opt/cloudflared/cloudflared ] || [ "$1" = "pull" ]; then
-	sudo /usr/bin/curl -sf https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/cloudflared-$2 --output /opt/cloudflared/cloudflared
+	sudo /usr/bin/curl -sf "https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/cloudflared-mips$bitdepth$endian" --output /opt/cloudflared/cloudflared
 fi
+
+# Install service in legacy mode and remove auto update
 /bin/chmod +x /opt/cloudflared/cloudflared
 /opt/cloudflared/cloudflared service install --legacy
 /bin/systemctl disable cloudflared-update
