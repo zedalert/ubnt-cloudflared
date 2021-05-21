@@ -48,11 +48,11 @@ bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/maste
 * Testing this on hardware I did not test yet would be wonderful !
 
 ## Credits
-* https://bendews.com/posts/implement-dns-over-https/
 * https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
-* https://github.com/yon2004/ubnt_cloudflared
-* https://community.ubnt.com/t5/UniFi-Routing-Switching/Scripts-on-USG/td-p/1402210
-* https://community.ubnt.com/t5/UniFi-Routing-Switching/Deploying-USG-scripts-through-controller/td-p/2140097
 * https://github.com/cloudflare/cloudflared/issues/251
-* https://community.ui.com/questions/Options-for-running-DNS-over-HTTPS-on-EdgeMax-device/065119c7-1f5c-4c29-8bc2-e8a0217bc018#answer/1b2861f6-e106-461e-af79-da9303a38e61
+* https://github.com/yon2004/ubnt_cloudflared
+* https://bendews.com/posts/implement-dns-over-https/
 * https://zyfdegh.github.io/post/202002-go-compile-for-mips/
+* https://community.ui.com/questions/Scripts-on-USG/551ede69-de7c-4fa2-9dbe-5e7921406255
+* https://community.ui.com/questions/Deploying-USG-scripts-through-controller/d6e7457a-6dc8-4146-96bd-fecaff27f785
+* https://community.ui.com/questions/Options-for-running-DNS-over-HTTPS-on-EdgeMax-device/065119c7-1f5c-4c29-8bc2-e8a0217bc018#answer/1b2861f6-e106-461e-af79-da9303a38e61
