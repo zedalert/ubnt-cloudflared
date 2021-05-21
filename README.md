@@ -16,7 +16,7 @@ Increase privacy on your network and prevent your ISP to eavesdrop your DNS requ
 
 ## Guide
 ### Installing hard way (secure)
-Download official [cloudflared](https://github.com/cloudflare/cloudflared/) client from GitHub.
+Download official [cloudflared](https://github.com/cloudflare/cloudflared/) client source code from GitHub.
 
 Build it with Go and target platform - `mips`, `mipsle` or `mips64`, depending on your router model. You can get all necessary information by using these commands:
 ```sh
