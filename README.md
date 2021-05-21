@@ -8,8 +8,6 @@ Increase privacy on your network and prevent your ISP to eavesdrop your DNS requ
 ## Hardware
 ### Tested
 * UniFi Security Gateway 3P
-
-### Currently testing
 * EdgeRouter X/X-SFP
 
 ### Should work on (but not tested)
@@ -20,15 +18,16 @@ Increase privacy on your network and prevent your ISP to eavesdrop your DNS requ
 ### Installing hard way (secure)
 Download official [cloudflared](https://github.com/cloudflare/cloudflared/) client from GitHub.
 
-Build it with Go and target platform MIPSLE, since EdgeRouter processors has Little-Endian byte-order.
+Build it with Go and target platform - MIPS, MIPSLE or MIPS64, depending on your router processor model.
 
 Place resulting binary into `/opt/cloudflared/` directory and install it as service with `--legacy` switch to bypass use of Argo Tunnel.
 
 ### Installing easy way (not secure)
 In a ssh session run the following command :
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/install.sh) ARCH
 ```
+Replace `ARCH` with your router processor model, for ex. `mips64` for USG/ER-6, `mipsle` for ER-X/ER-10X, etc.
 
 ### Updating
 Just run the install script again ;)
