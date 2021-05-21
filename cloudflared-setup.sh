@@ -40,6 +40,7 @@ set service nat rule 500 inbound-interface switch0
 set service nat rule 500 inside-address address 192.168.1.1
 set service nat rule 500 protocol tcp_udp
 set service nat rule 500 type destination
+set service nat rule 500 log enable
 
 # Block outgoing DNS packets and log them
 delete firewall name WAN_OUT rule 1000
