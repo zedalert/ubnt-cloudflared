@@ -18,16 +18,19 @@ Increase privacy on your network and prevent your ISP to eavesdrop your DNS requ
 ### Installing hard way (secure)
 Download official [cloudflared](https://github.com/cloudflare/cloudflared/) client from GitHub.
 
-Build it with Go and target platform - MIPS, MIPSLE or MIPS64, depending on your router processor model.
+Build it with Go and target platform - `mips`, `mipsle` or `mips64`, depending on your router model. You can get all necessary information by using this commands:
+```sh
+getconf LONG_BIT
+lscpu | grep 'Byte Order'
+```
 
 Place resulting binary into `/opt/cloudflared/` directory and install it as service with `--legacy` switch to bypass use of Argo Tunnel.
 
 ### Installing easy way (not secure)
 In a ssh session run the following command :
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/install.sh) ARCH
+bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/install.sh)
 ```
-Replace `ARCH` with your router processor model, for ex. `mips64` for USG/ER-6, `mipsle` for ER-X/ER-10X, etc.
 
 ### Updating
 Just run the install script again ;)
