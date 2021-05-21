@@ -25,7 +25,7 @@ Place resulting binary into `/opt/cloudflared/` directory and install it as serv
 ### Installing easy way (not secure)
 In a ssh session run the following command :
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/install.sh) ARCH
+bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/install.sh) ARCH
 ```
 Replace `ARCH` with your router processor model, for ex. `mips64` for USG/ER-6, `mipsle` for ER-X/ER-10X, etc.
 
@@ -35,12 +35,12 @@ Just run the install script again ;)
 ### Uninstall
 In a ssh session run the following command :
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/uninstall.sh)
+bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/uninstall.sh)
 ```
 
 ## Contributing
 * Please fork and submit PR's if you have any improvements.
-	* Implementing IPv6 features would help greatly
+* Implementing IPv6 features would help greatly.
 * Feel free to submit issues !
 * Testing this on hardware I did not test yet would be wonderful !
 
