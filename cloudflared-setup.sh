@@ -11,7 +11,7 @@ if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then
 	/usr/bin/curl -sf https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml
 fi
 if [ ! -f /opt/cloudflared/cloudflared ] || [ "$1" = "pull" ]; then
-	sudo /usr/bin/curl -sf https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/cloudflared --output /opt/cloudflared/cloudflared
+	sudo /usr/bin/curl -sf https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/cloudflared-$2 --output /opt/cloudflared/cloudflared
 fi
 /bin/chmod +x /opt/cloudflared/cloudflared
 /opt/cloudflared/cloudflared service install --legacy
