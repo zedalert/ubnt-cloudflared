@@ -25,7 +25,6 @@ configure
 
 # Use local DNS proxy
 delete service dns forwarding options
-set service dns forwarding options "no-resolv"
 set service dns forwarding options "server=127.0.0.1#5053"
 delete system name-server
 set system name-server 127.0.0.1
