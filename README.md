@@ -34,11 +34,11 @@ Place resulting binary into `/opt/cloudflared/` directory and install it as serv
 Addationally you can compress binary with [upx](https://github.com/upx/upx/) to save extra space.
 
 ### Maintenance
-During installation process partial config backup is created. You can disable cloudflared service at any time by just simply tiping in root shell:
+During installation process partial config backup is created. You can disable cloudflared service at any time by just simply typing in root shell:
 ```sh
 /config/scritps/cloudflared/setup.sh disable
 ```
-After that all settings will be restored to original ones before installation, at the same time all installation files and binary are keept in `/config/scritps/cloudflared` dir (considering you didn't remove these files). So at any time you can enable service again by tiping:
+After that all settings will be restored to original ones before installation, at the same time all installation files and binary are keept in `/config/scritps/cloudflared` directory (considering you didn't remove these files). So at any time you can enable service again by typing:
 ```sh
 /config/scritps/cloudflared/setup.sh enable
 ```
