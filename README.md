@@ -36,11 +36,11 @@ Addationally you can compress binary with [upx](https://github.com/upx/upx/) to 
 ### Maintenance
 During installation process partial config backup is created. You can disable cloudflared service at any time by just simply typing in root shell:
 ```sh
-/config/scritps/cloudflared/setup.sh disable
+/config/scripts/cloudflared/setup.sh disable
 ```
-After that all settings will be restored to original ones before installation, at the same time all installation files and binary are keept in `/config/scritps/cloudflared` directory (considering you didn't remove these files). So at any time you can enable service again by typing:
+After that all settings will be restored to original ones before installation, at the same time all installation files and binary are keept in `/config/scripts/cloudflared` directory (considering you didn't remove these files). So at any time you can enable service again by typing:
 ```sh
-/config/scritps/cloudflared/setup.sh enable
+/config/scripts/cloudflared/setup.sh enable
 ```
 
 ### Updating
