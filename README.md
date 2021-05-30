@@ -1,5 +1,5 @@
 # ubnt-cloudflared
-Install Cloudflare's DNS proxy on UniFi gateways and EdgeMax routers. This setup will survive reboots and re-provisions.
+Install Cloudflare's DNS-over-HTTPS proxy on UniFi gateways and EdgeMax routers. This setup will survive reboots and re-provisions.
 
 Only working for IPv4 at the moment.
 
@@ -15,21 +15,32 @@ Increase privacy on your network and prevent your ISP to eavesdrop your DNS requ
 * All UniFi Security Gateway models
 
 ## Guide
+### Installing easy way (not secure)
+In a ssh session run the following command :
+```sh
+sudo bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/setup.sh) install
+```
+
 ### Installing hard way (secure)
 Download official [cloudflared](https://github.com/cloudflare/cloudflared/) client source code from GitHub.
 
-Build it with Go and target platform - `mips`, `mipsle` or `mips64`, depending on your router model. You can get all necessary information by using these commands:
+Build it with Go and target platform - `mipsle`, `mips64`, etc. depending on SoC used in your device. You can get all necessary information by typing these commands in terminal:
 ```sh
 getconf LONG_BIT
 lscpu | grep 'Byte Order'
 ```
 
 Place resulting binary into `/opt/cloudflared/` directory and install it as service with `--legacy` switch to bypass use of Argo Tunnel.
+Addationally you can compress binary with [upx](https://github.com/upx/upx/) to save extra space.
 
-### Installing easy way (not secure)
-In a ssh session run the following command :
+### Maintenance
+During installation process partial config backup is created. You can disable cloudflared service at any time by just simply tiping in root shell:
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/install.sh)
+/config/scritps/cloudflared/setup.sh disable
+```
+After that all settings will be restored to original ones before installation, at the same time all installation files and binary are keept in `/config/scritps/cloudflared` dir (considering you didn't remove these files). So at any time you can enable service again by tiping:
+```sh
+/config/scritps/cloudflared/setup.sh enable
 ```
 
 ### Updating
@@ -38,7 +49,7 @@ Just run the install script again ;)
 ### Uninstall
 In a ssh session run the following command :
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/uninstall.sh)
+sudo bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/setup.sh) remove
 ```
 
 ## Contributing
