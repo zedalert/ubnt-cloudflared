@@ -47,9 +47,9 @@ After that all settings will be restored to original ones before installation, a
 Just run the install script again ;)
 
 ### Uninstall
-In a ssh session run the following command :
+In a root ssh session run the following command :
 ```sh
-sudo bash <(curl -s https://raw.githubusercontent.com/zedalert/ubnt-cloudflared/master/setup.sh) remove
+/config/scripts/cloudflared/setup.sh remove
 ```
 
 ## Contributing
